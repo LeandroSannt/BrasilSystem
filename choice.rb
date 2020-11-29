@@ -1,10 +1,8 @@
 loop do
 
-
     puts "Escolha o numero da questão de 1 a 12."
     puts "Digite 0 para sair"
     puts "=========================================="
-
 
   choice =gets.chomp.to_i
   if choice >12 || choice < 0
@@ -71,7 +69,7 @@ loop do
     first =array.first
     last = array.last
     puts "========================================="
-    puts "o resultado é: #{((first + last)/2)}" 
+    puts "o resultado entre a soma do primeiro e o ultimo dividido por 2: #{((first + last)/2)}" 
     
     result =array.select{|value|value>10}
     convertResult = result.join(",")
@@ -114,7 +112,7 @@ loop do
   if choice == 8
   array = Array.new()
   loop do
-      puts "Digite numeros aleatorios, para parar "
+      puts "Digite numeros aleatorios entre 50 e 300, para parar "
       puts"o programa digite 0"
       numbers = gets.chomp.to_i
       array << numbers
@@ -166,7 +164,7 @@ loop do
     inverso = valores.reverse
 
     puts "Tarefa 10"
-    puts "O valor invertido ordenado do array é:"
+    puts "O valor em ordem decrescente"
     for valor in inverso
       puts valor.to_s
     end
@@ -191,8 +189,8 @@ loop do
     end
 
     puts " ==========================================" 
-    resultArray1 = array1.map{|text| "O numero vai para o  primeiro array : #{text}"}
-    resultArray2 = array2.map{|text| "O numero vai para o segundo array: #{text}"}
+    resultArray1 = array1.map{|text| "Primeiro Array : #{text}"}
+    resultArray2 = array2.map{|text| "Segundo Array: #{text}"}
     array3=resultArray1.zip(resultArray2)
     puts "Tarefa 11"
     puts array3
@@ -202,9 +200,20 @@ loop do
 
   if choice == 12
     puts "Tarefa 12"
-    puts "<<<<<<<<<<<<Em andamento>>>>>>>>>>>"
-  end
+    $movs = 0
+def moveTower(totalDisks,diskA, diskB, diskC)
+    if totalDisks >= 1
+        moveTower(totalDisks-1,diskA,diskC,diskB)
+        $movs = $movs + 1
+        moveTower(totalDisks-1,diskC,diskB,diskA)
+    end
+end
 
+disks = 5
+moveTower(disks,"A","B","C")
+puts "#{($movs)} movimentos"
+puts "=========================================="
+  end
 
   break if (choice == 0)
 end
