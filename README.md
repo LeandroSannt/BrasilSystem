@@ -10,6 +10,6 @@
 
 <h3 align ="center">Sequencia de desafios  seletivos </h3>
 
-<p>Para executar  faça o clique em Code depois download zip, e execute  o arquivo choice<p>
+<p align ="center">Para executar  faça o clique em Code depois download zip, e execute  o arquivo choice<p>
 
 
