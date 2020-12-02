@@ -1,0 +1,189 @@
+1- Criar a classe Pessoa com as seguintes características:
+	Atributos: 
+1.	idade,
+2.	dia, 
+3.	mês 
+4.	ano de nascimento
+5.	nome da pessoa
+	métodos:
+1.	calculaIdade() : Que recebe a data atual em dias, mês e anos e calcula e armazena no atributo idade a idade atual da pessoa
+2.	informaIdade(): Que retorna o valor da idade
+3.	informaNome(): que retorna o nome da pessoa
+4.	ajustaDataDeNascimento(): que recebe dia, mês e ano de nascimento como parâmetros e preenche nos atributos correspondentes do objeto.
+	Criar dois objetos da classe Pessoa, um representando Albert Einstein (nascido em 14/3/1879) e o outro representando Isaac Newton (nascido em 4/1/1643)
+	Fazer uma classe principal que instancie os objetos, inicialize e mostre quais seriam as idades de Einstein e Newton caso estivessem vivos.
+	Crie um módulo chamado AcoesDoCorpo 
+	Dentro do modulo crie um metodo chamado movimentar_braco
+	Se à idade for par deve retornar uma mensagem informando que “Morreu dizendo que à teoria da relatividade é a maior descoberta do mundo”
+	Caso contrario “Morreu dizendo que à gravidade é a maior descoberta do mundo”
+
+
+Abrir arquivo PrimeiraQuestao.rb
+
+
+2- Este banco de dados contém uma lista incompleta de sucessos de bilheteria e seu ano de lançamento. Nesse desafio, você vai obter os resultados do banco de dados de formas diferentes! 
+	
+	INSERT INTO movies VALUES (1, 'Avatar', 2009);
+INSERT INTO movies VALUES (2, 'Titanic', 1997);
+INSERT INTO movies VALUES (3, 'Star Wars: Episode IV - A New Hope', 1977);
+INSERT INTO movies VALUES (4, 'Shrek 2', 2004);
+INSERT INTO movies VALUES (5, 'The Lion King', 1994);
+INSERT INTO movies VALUES (6, 'Disneys Up', 2009);
+
+A.	Nessa primeira etapa, selecione todos os filmes (movies).
+SELECT name FROM movies
+
+B.	Agora faça uma segunda pesquisa para obter os filmes lançados no ano 2000 ou depois, não antes (consulte release_year). Ordene os resultados para que os filmes mais antigos sejam listados primeiro.
+SELECT * FROM movies
+WHERE release_year > 2000
+ORDER BY release_year ASC
+
+
+3- Você já cantou alguma vez em um karaokê? É um lugar onde você canta com seus amigos, é muito divertido. Criamos uma tabela com músicas e, nesse desafio, você vai usar consultas para decidir quais músicas cantar. Nessa primeira etapa, selecione todos os títulos das músicas.
+	
+CREATE TABLE songs (
+    id INTEGER PRIMARY KEY,
+    title TEXT,
+    artist TEXT,
+    mood TEXT,
+    duration INTEGER,
+    released INTEGER);
+    
+
+    INSERT INTO songs (id,title, artist, mood, duration, released)
+    VALUES (1,'Bohemian Rhapsody', 'Queen', 'epic', 60, 1975);
+INSERT INTO songs (title, artist, mood, duration, released)
+    VALUES (2,'Let it go', 'Idina Menzel', 'epic', 227, 2013);
+INSERT INTO songs (id,title, artist, mood, duration, released)
+    VALUES (3,'I will survive', 'Gloria Gaynor', 'epic', 198, 1978);
+INSERT INTO songs (id,title, artist, mood, duration, released)
+    VALUES (4,'Twist and Shout', 'The Beatles', 'happy', 152, 1963);
+INSERT INTO songs (id,title, artist, mood, duration, released)
+    VALUES (5,'La Bamba', 'Ritchie Valens', 'happy', 166, 1958);
+INSERT INTO songs (id,title, artist, mood, duration, released)
+    VALUES (6,'I will always love you', 'Whitney Houston', 'epic', 273, 1992);
+INSERT INTO songs (id,title, artist, mood, duration, released)
+    VALUES (7,'Sweet Caroline', 'Neil Diamond', 'happy', 201, 1969);
+INSERT INTO songs (id,title, artist, mood, duration, released)
+    VALUES (8,'Call me maybe', 'Carly Rae Jepsen', 'happy', 193, 2011);
+
+
+SELECT title FROM songs
+
+A.	Talvez seus amigos gostem de cantar apenas músicas recentes ou realmente épicas. Adicione outro SELECT que usa OR para mostrar os títulos das músicas que são do tipo "epic" ou que tenham data de lançamento posterior a 1990.
+
+  SELECT * FROM songs WHERE
+  (mood = 'epic' OR released > 1990 )
+
+
+B.	As pessoas se tornam exigentes no fim da noite. Adicione outro SELECT que usa AND para mostrar títulos de músicas épicas, "epic", e lançadas após 1990, e que tenham menos de 4 minutos de duração. Obs: Perceba que a coluna de duração, duration, é medida em segundos.
+
+  SELECT * FROM songs WHERE
+  (mood = 'epic' OR released > 1990 ) AND duration < 240
+
+
+
+4- Criamos um banco de dados com alguns autores populares e seus livros, com contagem de palavras para cada livro. Nessa primeira etapa, selecione todos os autores que escreveram mais de 1 milhão de palavras, usando GROUP BY e HAVING. Sua tabela de resultados deve incluir o autor, "author", e a contagem total de palavras como uma coluna "total_words".
+
+
+CREATE TABLE books (
+    id SERIAL,
+    author TEXT,
+    title TEXT,
+    words INTEGER);
+    
+    
+    INSERT INTO books (author, title, words)
+    VALUES ('J.K. Rowling', 'Harry Potter and the Philosopher s Stone', 79944);
+INSERT INTO books (author, title, words)
+    VALUES ('J.K. Rowling', 'Harry Potter and the Chamber of Secrets', 85141);
+INSERT INTO books (author, title, words)
+    VALUES ('J.K. Rowling', 'Harry Potter and the Prisoner of Azkaban', 107253);
+INSERT INTO books (author, title, words)
+    VALUES ('J.K. Rowling', 'Harry Potter and the Goblet of Fire', 190637);
+INSERT INTO books (author, title, words)
+    VALUES ('J.K. Rowling', 'Harry Potter and the Order of the Phoenix', 257045);
+INSERT INTO books (author, title, words)
+    VALUES ('J.K. Rowling', 'Harry Potter and the Half-Blood Prince', 168923);
+INSERT INTO books (author, title, words)
+    VALUES ('J.K. Rowling', 'Harry Potter and the Deathly Hallows', 197651);
+
+INSERT INTO books (author, title, words)
+    VALUES ('Stephenie Meyer', 'Twilight', 118501);
+INSERT INTO books (author, title, words)
+    VALUES ('Stephenie Meyer', 'New Moon', 132807);
+INSERT INTO books (author, title, words)
+    VALUES ('Stephenie Meyer', 'Eclipse', 147930);
+INSERT INTO books (author, title, words)
+    VALUES ('Stephenie Meyer', 'Breaking Dawn', 192196);
+    
+INSERT INTO books (author, title, words)
+    VALUES ('J.R.R. Tolkien', 'The Hobbit', 95022);
+INSERT INTO books (author, title, words)
+    VALUES ('J.R.R. Tolkien', 'Fellowship of the Ring', 177227);
+INSERT INTO books (author, title, words)
+    VALUES ('J.R.R. Tolkien', 'Two Towers', 143436);
+INSERT INTO books (author, title, words)
+    VALUES ('J.R.R. Tolkien', 'Return of the King', 134462);
+
+SELECT author ,
+count(books.words) as  total_words
+FROM books
+WHERE words >100000
+GROUP BY author;   
+
+A.	Agora, selecione todos os autores que escreveram mais de uma média de 150.000 palavras por livro. Sua tabela de resultados deve incluir o autor, "author", e a média de palavras como uma coluna "avg_words".
+
+SELECT author ,
+count(books.words) as  total_words,
+AVG(books.words) as avg_words
+FROM books
+WHERE words >150000
+GROUP BY author
+
+
+
+5- Criamos um banco de dados de pessoas e hobbies, e cada linha em hobbies está relacionada a uma linha em persons por meio da coluna person_id. Nessa primeira etapa, insira mais uma linha em persons e então mais uma linha em hobbies que esteja relacionada à pessoa recentemente inserida.
+
+CREATE TABLE persons (
+        id SERIAL,
+        name TEXT,
+        age INTEGER);
+
+        INSERT INTO persons (name, age) VALUES ('Bobby McBobbyFace', 12);
+        INSERT INTO persons (name, age) VALUES ('Lucy BoBucie', 25);
+        INSERT INTO persons (name, age) VALUES ('Banana FoFanna', 14);
+        INSERT INTO persons (name, age) VALUES ('Shish Kabob', 20);
+        INSERT INTO persons (name, age) VALUES ('Fluffy Sparkles', 8);
+
+
+        CREATE table hobbies (
+        id SERIAL,
+        person_id INTEGER,
+        name TEXT);
+
+        INSERT INTO hobbies (person_id, name) VALUES (1, 'drawing');
+        INSERT INTO hobbies (person_id, name) VALUES (1, 'oding');
+        INSERT INTO hobbies (person_id, name) VALUES (2, 'ancing');
+        INSERT INTO hobbies (person_id, name) VALUES (2, 'oding');
+        INSERT INTO hobbies (person_id, name) VALUES (3, 'kating');
+        INSERT INTO hobbies (person_id, name) VALUES (3, 'owing');
+        INSERT INTO hobbies (person_id, name) VALUES (3, 'rawing');
+        INSERT INTO hobbies (person_id, name) VALUES (4, 'oding');
+        INSERT INTO hobbies (person_id, name) VALUES (4, 'illy-dallying');
+        INSERT INTO hobbies (person_id, name) VALUES (4, 'eowing');
+    
+    INSERT INTO persons (name, age) VALUES ('Leandro Santos', 24);
+    NSERT INTO hobbies (person_id, name) VALUES (6, 'running');
+
+1.	Agora, selecione 2 tabelas com um comando join para que você possa ver o nome de cada pessoa ao lado de seu hobby.
+SELECT persons.name, hobbies.name FROM persons
+LEFT JOIN hobbies ON(hobbies.person_id = persons.id)
+ORDER BY persons.id
+
+2.	Agora, faça uma consulta adicional que mostre apenas o nome e os hobbies de "Bobby McBobbyFace", usando JOIN combinado com WHERE.
+
+ SELECT persons.name, hobbies.name FROM persons
+ LEFT JOIN hobbies ON(hobbies.person_id = persons.id)
+ WHERE persons.name = 'Bobby McBobbyFace'
+ ORDER BY persons.id

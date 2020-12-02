@@ -1,6 +1,6 @@
 # BrasilSystem
 
-<h2 align ="center">Desafio 1 concluido<h2>
+<h2 align ="center">Desafios<h2>
 
  <h1 align ="center">
  <Br>
@@ -10,6 +10,10 @@
 
 <h3 align ="center">Sequencia de desafios  seletivos </h3>
 
+
+<h4>Desafio 1<h4>
 <p align ="center">Para executar  faça o clique em Code depois download zip, e execute  o arquivo choice<p>
 
+<h4>Desafio 2<h4>
 
+<p align ="center">Para executar  faça o clique em Code depois download zip, e execute  o arquivo Primeira Questão e ler o arquivo Desafio 2<p>
